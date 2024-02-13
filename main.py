@@ -19,7 +19,6 @@ input.on_button_pressed(Button.A, on_button_pressed_a)
 
 def showGroupLetter():
     basic.show_string("" + (letters[group]))
-
 def sendCommand():
     global buttonsLocked, startTime
     buttonsLocked = True
@@ -64,6 +63,7 @@ def on_button_pressed_b():
         selected = True
         radio.set_group(group + 1)
         basic.show_string("G" + letters[group])
+        displaySelectedCommand()
     else:
         sendCommand()
 input.on_button_pressed(Button.B, on_button_pressed_b)
@@ -71,7 +71,7 @@ input.on_button_pressed(Button.B, on_button_pressed_b)
 # Return to showing the selected command
 def blinkCheckSymbol():
     global blinkEndTime, buttonsLocked
-    blinkEndTime = input.running_time() + 5000
+    blinkEndTime = input.running_time() + 2000
     while input.running_time() < blinkEndTime:
         basic.show_icon(IconNames.YES)
         basic.pause(200)

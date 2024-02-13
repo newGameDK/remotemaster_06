@@ -79,6 +79,7 @@ input.onButtonPressed(Button.B, function on_button_pressed_b() {
         selected = true
         radio.setGroup(group + 1)
         basic.showString("G" + letters[group])
+        displaySelectedCommand()
     } else {
         sendCommand()
     }
@@ -87,7 +88,7 @@ input.onButtonPressed(Button.B, function on_button_pressed_b() {
 //  Return to showing the selected command
 function blinkCheckSymbol() {
     
-    blinkEndTime = input.runningTime() + 5000
+    blinkEndTime = input.runningTime() + 2000
     while (input.runningTime() < blinkEndTime) {
         basic.showIcon(IconNames.Yes)
         basic.pause(200)
